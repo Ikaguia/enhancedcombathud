@@ -47,8 +47,8 @@
 .portrait-stat-block [data-ac-value]:after {
     content: attr(data-ac-value);
 }
-.portrait-stat-block [data-spell-dc]:after {
-    content: attr(data-spell-dc);
+.portrait-stat-block [data-power-dc]:after {
+    content: attr(data-power-dc);
 }
 .portrait-stat-block.player-details {
     align-items: flex-start;

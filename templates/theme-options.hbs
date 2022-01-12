@@ -2,25 +2,25 @@
 	<h3 class="flexrow">
 		Argon - Combat HUD: Theme Options
         <button type="button" name="export" onclick="echThemeOptions.defaultOptions.createTheme();">
-            <i class="fas fa-file-export">{{localize 'enhancedcombathud.themeOptions.export'}}</i>
+            <i class="fas fa-file-export">{{localize 'enhancedcombathudsw5e.themeOptions.export'}}</i>
         </button>
 	</h3>
 	<hr/>
 	<div class="form-group" style="display: none;">
-		<label>{{localize 'enhancedcombathud.themeOptions.fontFamilyTitle'}}</label>
+		<label>{{localize 'enhancedcombathudsw5e.themeOptions.fontFamilyTitle'}}</label>
 		<div class="form-fields">
 			<input type="text" name="font" value="{{themeOptions.font}}" data-dtype="String">
 		</div>
-		<p class="notes">{{localize 'enhancedcombathud.themeOptions.fontFamilyHint'}}</p>
+		<p class="notes">{{localize 'enhancedcombathudsw5e.themeOptions.fontFamilyHint'}}</p>
     </div>
 	<div class="form-group">
-		<label>{{localize 'enhancedcombathud.themeOptions.themeTitle'}}</label>
+		<label>{{localize 'enhancedcombathudsw5e.themeOptions.themeTitle'}}</label>
 		<div class="form-fields">
 			<select name="theme">
 				<option value="custom" selected="">Custom</option>
 			</select>
 		</div>
-		<p class="hint">{{localize 'enhancedcombathud.themeOptions.themeHint'}}</p>
+		<p class="hint">{{localize 'enhancedcombathudsw5e.themeOptions.themeHint'}}</p>
     </div>
 	<ul class="echThemeOptionsContainer">
 	{{#each themeOptions.colors}}
@@ -49,7 +49,7 @@
 	</ul>
 	<footer class="sheet-footer flexrow">
 		<button type="submit" name="submit">
-			<i class="fas fa-save"></i> {{localize 'enhancedcombathud.themeOptions.save'}}
+			<i class="fas fa-save"></i> {{localize 'enhancedcombathudsw5e.themeOptions.save'}}
 		</button>
     </footer>
 </form>

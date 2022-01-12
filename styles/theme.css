@@ -96,22 +96,22 @@
 	/* ADD THEME OPTIONS */
     background-color: rgb(0 0 0 / 30%);
     border-color: var(--ech-mainAction-base-border);
-	color: rgb(200 200 200);
+	color: rgb(150, 150, 150);
 }
-.feature-spell-slots {
+.feature-power-slots {
 	/* ADD THEME OPTIONS */
   	background-color: rgb(0 0 0 / 30%);
 	border-color: var(--ech-mainAction-base-border);
 }
-.feature-spell-slots .spell-slot {
+.feature-power-slots .power-slot {
 	/* ADD THEME OPTIONS */
     background-color: rgb(180, 210, 225);
     box-shadow: 0px 0px 10px 0px rgb(200 230 245 / 80%);
 }
-.feature-spell-slots .spell-slot.spell-used {
+.feature-power-slots .power-slot.power-used {
 	/* ADD THEME OPTIONS */
 }
-.feature-spell-slots .spell-slot.spell-used:after {
+.feature-power-slots .power-slot.power-used:after {
 	/* ADD THEME OPTIONS */
 }
 .feature-element {
@@ -267,7 +267,7 @@
     color: rgb(90, 190, 245);
 }
 
-.portrait-stat-block [data-spell-dc]:after {
+.portrait-stat-block [data-power-dc]:after {
 	/* ADD THEME OPTIONS */
     color: rgb(90, 190, 245);
 }
@@ -356,7 +356,7 @@
 	/* ADD THEME OPTIONS */
     background-color: rgb(0 0 0 / 30%);
 	border-color: var(--ech-mainAction-base-border);
-    color: rgb(200 200 200);
+    color: rgb(150, 150, 150);
 }
 .movement-hud .movement-current {
 	/* ADD THEME OPTIONS */

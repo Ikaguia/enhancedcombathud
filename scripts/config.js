@@ -14,7 +14,7 @@ class echThemeOptions extends FormApplication {
       ...super.defaultOptions,
       title: "Theme Options",
       id: "echThemeOptions",
-      template: "modules/enhancedcombathud/templates/theme-options.hbs",
+      template: "modules/enhancedcombathudsw5e/templates/theme-options.hbs",
       resizable: true,
       width: 660,
       height: $(window).height(),
@@ -23,7 +23,7 @@ class echThemeOptions extends FormApplication {
           title: 'Export Argon - Combat HUD Theme',
           content: `<form id="echExportTheme">
             <div class="form-group">
-              <label>${game.i18n.localize('enhancedcombathud.themeOptions.exportThemeName')}</label>
+              <label>${game.i18n.localize('enhancedcombathudsw5e.themeOptions.exportThemeName')}</label>
               <input type="text" name="echExportThemeName"/>
             </div>
           </form>`,
@@ -41,7 +41,7 @@ class echThemeOptions extends FormApplication {
                     )], 
                     `${themeName}.json`
                   );
-                FilePicker.upload('data', './modules/enhancedcombathud/scripts/themes/', theme).then(response => {
+                FilePicker.upload('data', './modules/enhancedcombathudsw5e/scripts/themes/', theme).then(response => {
                   echThemeOptions.defaultOptions.buildDropdown(themeName);
                 });
               }
@@ -85,16 +85,16 @@ class echThemeOptions extends FormApplication {
         return theme.colors;
       },
       buildDropdown: (selectedTheme) => {
-        if (typeof selectedTheme == 'undefined') game.settings.get("enhancedcombathud", "echThemeData").theme;
+        if (typeof selectedTheme == 'undefined') game.settings.get("enhancedcombathudsw5e", "echThemeData").theme;
 
         $('#echThemeOptions').find('select[name="theme"] option').remove();
 
-        FilePicker.browse('user', `./modules/enhancedcombathud/scripts/themes`, { extensions: ['.json'] }).then(response => {
+        FilePicker.browse('user', `./modules/enhancedcombathudsw5e/scripts/themes`, { extensions: ['.json'] }).then(response => {
           let files = response.files;
           if (files.length > 0) {
             return files;
           }
-          throw TypeError(`No theme files found in enhancedcombathud/scripts/themes`);
+          throw TypeError(`No theme files found in enhancedcombathudsw5e/scripts/themes`);
         }).then(files => {
           $('#echThemeOptions').find('select[name="theme"]').append(`<option value="custom">Custom</option>`);
           files.forEach(file => {
@@ -108,7 +108,7 @@ class echThemeOptions extends FormApplication {
   }
   getData() {
     return {
-      themeOptions: game.settings.get("enhancedcombathud", "echThemeData")
+      themeOptions: game.settings.get("enhancedcombathudsw5e", "echThemeData")
     };
   }
   activateListeners(html) {
@@ -132,20 +132,20 @@ class echThemeOptions extends FormApplication {
       }
     } 
 
-    echThemeOptions.defaultOptions.buildDropdown(game.settings.get("enhancedcombathud", "echThemeData").theme);
+    echThemeOptions.defaultOptions.buildDropdown(game.settings.get("enhancedcombathudsw5e", "echThemeData").theme);
     
-    /*FilePicker.browse('user', `./modules/enhancedcombathud/scripts/themes`, { extensions: ['.json'] }).then(response => {
+    /*FilePicker.browse('user', `./modules/enhancedcombathudsw5e/scripts/themes`, { extensions: ['.json'] }).then(response => {
       let files = response.files;
       if (files.length > 0) {
         return files;
       }
-      throw TypeError(`No theme files found in enhancedcombathud/scripts/themes`);
+      throw TypeError(`No theme files found in enhancedcombathudsw5e/scripts/themes`);
     }).then(files => {
       files.forEach(file => {
         let filename = file.split('/')[file.split('/').length - 1].replace(/\.json/gi, '')
         $(html).find('select[name="theme"]').append(`<option value="${filename}">${filename[0].toUpperCase() + filename.substring(1)}</option>`);
       })
-      $(html).find('select[name="theme"]').val(game.settings.get("enhancedcombathud", "echThemeData").theme);
+      $(html).find('select[name="theme"]').val(game.settings.get("enhancedcombathudsw5e", "echThemeData").theme);
     }).catch(error => console.log(error));*/
 
 
@@ -168,11 +168,11 @@ class echThemeOptions extends FormApplication {
       }
 
       if (selectedTheme != 'custom') {
-        fetch(`./modules/enhancedcombathud/scripts/themes/${selectedTheme}.json`).then(response => response.json()).then(colors => {
+        fetch(`./modules/enhancedcombathudsw5e/scripts/themes/${selectedTheme}.json`).then(response => response.json()).then(colors => {
           updateColors(colors);
         });
       }else{
-        updateColors(game.settings.get("enhancedcombathud", "echThemeData").colors);
+        updateColors(game.settings.get("enhancedcombathudsw5e", "echThemeData").colors);
       }
     })
 
@@ -189,20 +189,20 @@ class echThemeOptions extends FormApplication {
       return obj;
     }
 
-    let themeOptions = game.settings.get("enhancedcombathud", "echThemeData")
+    let themeOptions = game.settings.get("enhancedcombathudsw5e", "echThemeData")
 
     $(event.srcElement).find('button[name="colored"]').each((index, button) => { 
       let $button = $(button);
       setDeepObj(formData, $button.data('setting'), $button.attr('value'));
     });
 
-    await game.settings.set("enhancedcombathud", "echThemeData", formData);
-    canvas.hud.enhancedcombathud?.setColorSettings();
+    await game.settings.set("enhancedcombathudsw5e", "echThemeData", formData);
+    canvas.hud.enhancedcombathudsw5e?.setColorSettings();
   }
 }
 
 Hooks.once("init", function () {
-  game.settings.register("enhancedcombathud", "echThemeData", {
+  game.settings.register("enhancedcombathudsw5e", "echThemeData", {
     name: "Data used for Theming",
     type: Object,
     default: {
@@ -319,18 +319,18 @@ Hooks.once("init", function () {
 
 
   // Define a settings submenu which handles advanced configuration needs
-  game.settings.registerMenu("enhancedcombathud", "echThemeOptions", {
-    name: game.i18n.localize("enhancedcombathud.settings.thememenu.name"),
-    label: game.i18n.localize("enhancedcombathud.settings.thememenu.label"),
-    hint: game.i18n.localize("enhancedcombathud.settings.thememenu.hint"),
+  game.settings.registerMenu("enhancedcombathudsw5e", "echThemeOptions", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.thememenu.name"),
+    label: game.i18n.localize("enhancedcombathudsw5e.settings.thememenu.label"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.thememenu.hint"),
     icon: "fas fa-bars",
     type: echThemeOptions,
     restricted: false
   });
 
-  game.settings.register("enhancedcombathud", "scale", {
-    name: game.i18n.localize("enhancedcombathud.settings.scale.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.scale.hint"),
+  game.settings.register("enhancedcombathudsw5e", "scale", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.scale.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.scale.hint"),
     scope: "client",
     config: true,
     range: {
@@ -342,96 +342,96 @@ Hooks.once("init", function () {
     default: 1,
   });
 
-  game.settings.register("enhancedcombathud", "noAutoscale", {
-    name: game.i18n.localize("enhancedcombathud.settings.noAutoscale.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.noAutoscale.hint"),
+  game.settings.register("enhancedcombathudsw5e", "noAutoscale", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.noAutoscale.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.noAutoscale.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: false,
   });
 
-  game.settings.register("enhancedcombathud", "leftPos", {
-    name: game.i18n.localize("enhancedcombathud.settings.leftPos.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.leftPos.hint"),
+  game.settings.register("enhancedcombathudsw5e", "leftPos", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.leftPos.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.leftPos.hint"),
     scope: "client",
     config: true,
     type: Number,
     default: 15,
   });
 
-  game.settings.register("enhancedcombathud", "botPos", {
-    name: game.i18n.localize("enhancedcombathud.settings.botPos.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.botPos.hint"),
+  game.settings.register("enhancedcombathudsw5e", "botPos", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.botPos.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.botPos.hint"),
     scope: "client",
     config: true,
     type: Number,
     default: 15,
   });
 
-  game.settings.register("enhancedcombathud", "playerDetailsBottom", {
-    name: game.i18n.localize("enhancedcombathud.settings.playerDetailsBottom.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.playerDetailsBottom.hint"),
+  game.settings.register("enhancedcombathudsw5e", "playerDetailsBottom", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.playerDetailsBottom.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.playerDetailsBottom.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: false,
   });
 
-  game.settings.register("enhancedcombathud", "preparedSpells", {
-    name: game.i18n.localize("enhancedcombathud.settings.preparedSpells.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.preparedSpells.hint"),
+  game.settings.register("enhancedcombathudsw5e", "preparedPowers", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.preparedPowers.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.preparedPowers.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: false,
   });
 
-  game.settings.register("enhancedcombathud", "showTooltips", {
-    name: game.i18n.localize("enhancedcombathud.settings.showTooltips.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.showTooltips.hint"),
+  game.settings.register("enhancedcombathudsw5e", "showTooltips", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltips.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltips.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: true,
   });
 
-  game.settings.register("enhancedcombathud", "showTooltipsSpecial", {
-    name: game.i18n.localize("enhancedcombathud.settings.showTooltipsSpecial.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.showTooltipsSpecial.hint"),
+  game.settings.register("enhancedcombathudsw5e", "showTooltipsSpecial", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsSpecial.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsSpecial.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: true,
   });
-  game.settings.register("enhancedcombathud", "showTooltipsAbilityMenuAbilities", {
-    name: game.i18n.localize("enhancedcombathud.settings.showTooltipsAbilityMenuAbilities.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.showTooltipsAbilityMenuAbilities.hint"),
+  game.settings.register("enhancedcombathudsw5e", "showTooltipsAbilityMenuAbilities", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsAbilityMenuAbilities.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsAbilityMenuAbilities.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: true,
   });
-  game.settings.register("enhancedcombathud", "showTooltipsAbilityMenuSkills", {
-    name: game.i18n.localize("enhancedcombathud.settings.showTooltipsAbilityMenuSkills.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.showTooltipsAbilityMenuSkills.hint"),
+  game.settings.register("enhancedcombathudsw5e", "showTooltipsAbilityMenuSkills", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsAbilityMenuSkills.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsAbilityMenuSkills.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: true,
   });
-  game.settings.register("enhancedcombathud", "showTooltipsAbilityMenuTools", {
-    name: game.i18n.localize("enhancedcombathud.settings.showTooltipsAbilityMenuTools.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.showTooltipsAbilityMenuTools.hint"),
+  game.settings.register("enhancedcombathudsw5e", "showTooltipsAbilityMenuTools", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsAbilityMenuTools.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.showTooltipsAbilityMenuTools.hint"),
     scope: "client",
     config: true,
     type: Boolean,
     default: true,
   });
 
-  game.settings.register("enhancedcombathud", "fadeOutInactive", {
-    name: game.i18n.localize("enhancedcombathud.settings.fadeOutInactive.name"),
-    hint: game.i18n.localize("enhancedcombathud.settings.fadeOutInactive.hint"),
+  game.settings.register("enhancedcombathudsw5e", "fadeOutInactive", {
+    name: game.i18n.localize("enhancedcombathudsw5e.settings.fadeOutInactive.name"),
+    hint: game.i18n.localize("enhancedcombathudsw5e.settings.fadeOutInactive.hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -443,7 +443,7 @@ Hooks.once("init", function () {
 
 
 Hooks.once("ready", function () {
-  /*game.settings.set("enhancedcombathud", "echThemeData", {
+  /*game.settings.set("enhancedcombathudsw5e", "echThemeData", {
     theme: 'custom',
     font: 'Roboto',
     colors: {
@@ -556,21 +556,21 @@ Hooks.once("ready", function () {
 Hooks.on("renderItemSheet", (itemsheet, html) => {
   let actionType = itemsheet.object.data.data.activation.type;
   let itemType = itemsheet.object.data.type;
-  let echFlags = itemsheet.object.data.flags.enhancedcombathud;
+  let echFlags = itemsheet.object.data.flags.enhancedcombathudsw5e;
 
   // Constant function that returns formatted label
   const labelTemplate = (set) => {
     return `<label class="checkbox">
       <input type="checkbox" 
         ${echFlags?.[set] ? "checked" : ""} 
-        name="flags.enhancedcombathud.${set}"> 
-        ${game.i18n.localize('enhancedcombathud.itemconfig.' + set + '.text')}
+        name="flags.enhancedcombathudsw5e.${set}"> 
+        ${game.i18n.localize('enhancedcombathudsw5e.itemconfig.' + set + '.text')}
       </label>`;
   }
 
   const configHtmlElements = {
     start: `<div class="form-group stacked" id="test">
-      <label>${game.i18n.localize("enhancedcombathud.itemconfig.sets.text")}</label>`,
+      <label>${game.i18n.localize("enhancedcombathudsw5e.itemconfig.sets.text")}</label>`,
     end: `</div>`
   };
 
@@ -599,18 +599,18 @@ Hooks.on("getSceneControlButtons", (controls, b, c) => {
   controls
     .find((x) => x.name == "token")
     .tools.push({
-      active: canvas.hud?.enhancedcombathud?._state == 2,
+      active: canvas.hud?.enhancedcombathudsw5e?._state == 2,
       icon: "ech-swords",
       name: "echtoggle",
-      title: game.i18n.localize('enhancedcombathud.controls.toggle.title'),
+      title: game.i18n.localize('enhancedcombathudsw5e.controls.toggle.title'),
       onClick: function (toggle)  {
         if (toggle) {
-          if(_token && canvas.tokens.get(_token.id))canvas.hud.enhancedcombathud.bind(_token);
+          if(_token && canvas.tokens.get(_token.id))canvas.hud.enhancedcombathudsw5e.bind(_token);
           else {
             this.active = false
-            ui.notifications.warn(game.i18n.localize('enhancedcombathud.controls.toggle.warning'));}
+            ui.notifications.warn(game.i18n.localize('enhancedcombathudsw5e.controls.toggle.warning'));}
         } else {
-          canvas.hud.enhancedcombathud.close();
+          canvas.hud.enhancedcombathudsw5e.close();
         }
 
         $(".ech-swords").parent().toggleClass("active", toggle);
@@ -638,7 +638,7 @@ Handlebars.registerHelper('echLocalize', (data, data2, data3) => {
   if (typeof data2 == 'string') str += `${data2.charAt(0).toUpperCase() + data2.slice(1)}`;
   if (typeof data3 == 'string') str += `${data3.charAt(0).toUpperCase() + data3.slice(1)}`;
 
-  return game.i18n.localize(`enhancedcombathud.themeOptions${str}`)
+  return game.i18n.localize(`enhancedcombathudsw5e.themeOptions${str}`)
 })
 
 Handlebars.registerHelper('ifObject', function(item, options) {
@@ -649,8 +649,8 @@ Handlebars.registerHelper('ifObject', function(item, options) {
   }
 });
 
-Handlebars.registerHelper('spellSlots', function (obj) {　　　　
-  return CombatHudCanvasElement.generateSpells(obj);
+Handlebars.registerHelper('powerSlots', function (obj) {　　　　
+  return CombatHudCanvasElement.generatePowers(obj);
 })
 
 Handlebars.registerHelper('hasUses', function (data) {
@@ -663,8 +663,8 @@ Handlebars.registerHelper('hasUses', function (data) {
 })
 
 Handlebars.registerHelper('generateSavingThrows', (str) => {
-  let data = canvas.hud.enhancedcombathud.hudData[str];
-  let localize = canvas.hud.enhancedcombathud.hudData.settings.localize
+  let data = canvas.hud.enhancedcombathudsw5e.hudData[str];
+  let localize = canvas.hud.enhancedcombathudsw5e.hudData.settings.localize
   let html = '';
   let prof = {
     '0': 'not-proficient',
@@ -692,8 +692,8 @@ Handlebars.registerHelper('generateSavingThrows', (str) => {
 })
 
 Handlebars.registerHelper('generateAbilities', function (str) {
-  let data = canvas.hud.enhancedcombathud.hudData[str];
-  let localize = canvas.hud.enhancedcombathud.hudData.settings.localize
+  let data = canvas.hud.enhancedcombathudsw5e.hudData[str];
+  let localize = canvas.hud.enhancedcombathudsw5e.hudData.settings.localize
   let html = '';
   let prof = {
     '0': 'not-proficient',
@@ -703,7 +703,7 @@ Handlebars.registerHelper('generateAbilities', function (str) {
   }
   let $dropdown = $('<select></select>');
 
-  for (let [key, value] of Object.entries(game.dnd5e.config.abilities)) {
+  for (let [key, value] of Object.entries(game.sw5e.config.abilities)) {
     $dropdown.append(`<option value="${key}">${value.substring(0,3)}</option>`);
   }
 
@@ -740,6 +740,6 @@ $('body').on('click', '#echThemeOptions li h4.toggleOptions', (event) => {
 });
 
 Hooks.on("canvasReady", function () {
-  canvas.hud.enhancedcombathud?.close();
+  canvas.hud.enhancedcombathudsw5e?.close();
   $(".extended-combat-hud").remove()
 })

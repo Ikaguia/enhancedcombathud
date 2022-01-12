@@ -1,10 +1,10 @@
 {
-  "name": "enhancedcombathud",
-  "title": "Argon - Combat HUD",
+  "name": "enhancedcombathudsw5e",
+  "title": "sw5e - Combat HUD",
   "description": "It's Magic",
-  "systems": ["dnd5e"],
+  "systems": ["sw5e"],
   "version": "0.1",
-  "author": "theripper93, Mouse0270",
+  "author": "theripper93, Mouse0270, Ikaguia",
   "authors": [
       {
           "name": "theripper93",
@@ -15,6 +15,11 @@
         "email": "",
         "url": "https://www.patreon.com/mouse0270",
         "discord": "mouse0270#0270"
+      }, {
+        "name": "Ikaguia",
+        "email": "",
+        "url": "",
+        "discord": "ikaguia#2965"
       }
   ],
   "languages": [
@@ -24,10 +29,10 @@
           "path": "languages/en.json"
       },
       {
-        "lang": "it",
-        "name": "Italiano",
-        "path": "languages/it.json"
-    }
+          "lang": "it",
+          "name": "Italiano",
+          "path": "languages/it.json"
+      }
   ],
   "scripts": [
       "./scripts/main.js",
@@ -50,14 +55,14 @@
         "label": "Argon Combat HUD Macros",
         "path": "packs/macros.db",
         "entity": "Macro",
-        "module": "enhancedcombathud"
+        "module": "enhancedcombathudsw5e"
     }
   ],
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.8",
-  "url": "https://github.com/theripper93/enhancedcombathud",
-  "manifest": "https://github.com/theripper93/enhancedcombathud/releases/latest/download/module.json",
-  "download": "https://github.com/theripper93/enhancedcombathud/releases/latest/download/module.zip",
+  "url": "https://github.com/ikaguia/enhancedcombathudsw5e",
+  "manifest": "https://github.com/ikaguia/enhancedcombathudsw5e/releases/latest/download/module.json",
+  "download": "https://github.com/ikaguia/enhancedcombathudsw5e/releases/latest/download/module.zip",
   "socket":true,
   "dependencies": [
     {

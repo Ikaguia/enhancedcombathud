@@ -56,10 +56,6 @@
   background-origin: border-box;
   background-size: cover;
 }
-.action-element[data-set=setp]:hover,
-.action-element[data-set=sets]:hover {
-  filter: brightness(150%);
-}
 .action-element.has-count:before {
   border-top: 4rem solid transparent;
   border-right: 4rem solid transparent;
@@ -193,7 +189,7 @@
 .features-accordion-content {
   margin-bottom: 50px;
 }
-.feature-spell-slots {
+.feature-power-slots {
   align-items: center;
   backdrop-filter: blur(6px);
   border: 1px solid transparent;
@@ -208,7 +204,7 @@
   width: 100%;
   pointer-events: all;
 }
-.feature-spell-slots .spell-slot {
+.feature-power-slots .power-slot {
     border-radius: 3px;
     content: "";
     height: 25px;
@@ -217,11 +213,11 @@
     transition: all 0.3s ease-in-out;
     width: 25px;
 }
-.feature-spell-slots .spell-slot.spell-used {
+.feature-power-slots .power-slot.power-used {
   background-color: rgb(120, 130, 145);
   box-shadow: none;
 }
-.feature-spell-slots .spell-slot.spell-used:after {
+.feature-power-slots .power-slot.power-used:after {
   color: red;
   content: "\f00d";
   font-family: "Font Awesome 5 Free";
@@ -231,7 +227,7 @@
   transform: translate(-50%, -50%);
   top: 50%;
 }
-.feature-spell-slots .spell-slot.spell-cantrip {
+.feature-power-slots .power-slot.power-cantrip {
   background: transparent;
   box-shadow: none;
   font-size: 2rem;
@@ -264,7 +260,7 @@
   filter: brightness(150%);
 }
 
-.features-container.is-spells .feature-element {
+.features-container.is-powers .feature-element {
   margin-right: 0rem;
 }
 

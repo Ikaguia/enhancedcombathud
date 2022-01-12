@@ -1,13 +1,13 @@
 let ECHItems = {}
 
 Hooks.once("ready",()=>{
-  ECHItems[game.i18n.localize("enhancedcombathud.items.disengage.name")] = {
-    "name": game.i18n.localize("enhancedcombathud.items.disengage.name"),
+  ECHItems[game.i18n.localize("enhancedcombathudsw5e.items.disengage.name")] = {
+    "name": game.i18n.localize("enhancedcombathudsw5e.items.disengage.name"),
     "type": "feat",
-    "img": "modules/enhancedcombathud/icons/journey.svg",
+    "img": "modules/enhancedcombathudsw5e/icons/journey.svg",
     "data": {
       "description": {
-        "value": game.i18n.localize("enhancedcombathud.items.disengage.desc"),
+        "value": game.i18n.localize("enhancedcombathudsw5e.items.disengage.desc"),
         "chat": "",
         "unidentified": ""
       },
@@ -58,7 +58,7 @@ Hooks.once("ready",()=>{
       "save": {
         "ability": "",
         "dc": null,
-        "scaling": "spell"
+        "scaling": "power"
       },
     },
     "effects": [
@@ -70,7 +70,7 @@ Hooks.once("ready",()=>{
           "startTime": null,
           "turns": 1
         },
-        "icon": "modules/enhancedcombathud/icons/journey.svg",
+        "icon": "modules/enhancedcombathudsw5e/icons/journey.svg",
         "label": "Disengage",
         "origin": "Item.wyQkeuZkttllAFB1",
         "transfer": false,
@@ -90,7 +90,7 @@ Hooks.once("ready",()=>{
       "core": {
         "sourceId": "Item.wyQkeuZkttllAFB1"
       },
-      "enhancedcombathud": {
+      "enhancedcombathudsw5e": {
         "set1p": false,
         "set2p": false,
         "set3p": false
@@ -100,13 +100,13 @@ Hooks.once("ready",()=>{
       }
     }
   }
-  ECHItems[game.i18n.localize("enhancedcombathud.items.hide.name")] = {
-    "name": game.i18n.localize("enhancedcombathud.items.hide.name"),
+  ECHItems[game.i18n.localize("enhancedcombathudsw5e.items.hide.name")] = {
+    "name": game.i18n.localize("enhancedcombathudsw5e.items.hide.name"),
     "type": "feat",
-    "img": "modules/enhancedcombathud/icons/cloak-dagger.svg",
+    "img": "modules/enhancedcombathudsw5e/icons/cloak-dagger.svg",
     "data": {
       "description": {
-        "value": game.i18n.localize("enhancedcombathud.items.hide.desc"),
+        "value": game.i18n.localize("enhancedcombathudsw5e.items.hide.desc"),
         "chat": "",
         "unidentified": ""
       },
@@ -162,7 +162,7 @@ Hooks.once("ready",()=>{
       "save": {
         "ability": "",
         "dc": null,
-        "scaling": "spell"
+        "scaling": "power"
       },
       "consumableType": "trinket"
     },
@@ -175,7 +175,7 @@ Hooks.once("ready",()=>{
           "startTime": null,
           "turns": 10
         },
-        "icon": "modules/enhancedcombathud/icons/cloak-dagger.svg",
+        "icon": "modules/enhancedcombathudsw5e/icons/cloak-dagger.svg",
         "label": "Hide",
         "transfer": false,
         "flags": {
@@ -191,7 +191,7 @@ Hooks.once("ready",()=>{
     ],
     "sort": 0,
     "flags": {
-      "enhancedcombathud": {
+      "enhancedcombathudsw5e": {
         "set1p": false,
         "set2p": false,
         "set3p": false,
@@ -204,13 +204,13 @@ Hooks.once("ready",()=>{
       }
     }
   }
-  ECHItems[game.i18n.localize("enhancedcombathud.items.shove.name")] = {
-    "name": game.i18n.localize("enhancedcombathud.items.shove.name"),
+  ECHItems[game.i18n.localize("enhancedcombathudsw5e.items.shove.name")] = {
+    "name": game.i18n.localize("enhancedcombathudsw5e.items.shove.name"),
     "type": "feat",
-    "img": "modules/enhancedcombathud/icons/shield-bash.svg",
+    "img": "modules/enhancedcombathudsw5e/icons/shield-bash.svg",
     "data": {
       "description": {
-        "value": game.i18n.localize("enhancedcombathud.items.shove.desc"),
+        "value": game.i18n.localize("enhancedcombathudsw5e.items.shove.desc"),
         "chat": "",
         "unidentified": ""
       },
@@ -262,14 +262,14 @@ Hooks.once("ready",()=>{
       "save": {
         "ability": "",
         "dc": null,
-        "scaling": "spell"
+        "scaling": "power"
       },
       "consumableType": "trinket"
     },
     "effects": [],
     "sort": 0,
     "flags": {
-      "enhancedcombathud": {
+      "enhancedcombathudsw5e": {
         "set1p": false,
         "set2p": false,
         "set3p": false
@@ -279,13 +279,13 @@ Hooks.once("ready",()=>{
       }
     }
   }
-  ECHItems[game.i18n.localize("enhancedcombathud.items.dash.name")] = {
-    "name": game.i18n.localize("enhancedcombathud.items.dash.name"),
+  ECHItems[game.i18n.localize("enhancedcombathudsw5e.items.dash.name")] = {
+    "name": game.i18n.localize("enhancedcombathudsw5e.items.dash.name"),
     "type": "feat",
-    "img": "modules/enhancedcombathud/icons/walking-boot.svg",
+    "img": "modules/enhancedcombathudsw5e/icons/walking-boot.svg",
     "data": {
       "description": {
-        "value": game.i18n.localize("enhancedcombathud.items.dash.desc"),
+        "value": game.i18n.localize("enhancedcombathudsw5e.items.dash.desc"),
         "chat": "",
         "unidentified": ""
       },
@@ -337,7 +337,7 @@ Hooks.once("ready",()=>{
       "save": {
         "ability": "",
         "dc": null,
-        "scaling": "spell"
+        "scaling": "power"
       },
       "consumableType": "trinket"
     },
@@ -350,7 +350,7 @@ Hooks.once("ready",()=>{
           "startTime": null,
           "rounds": 1
         },
-        "icon": "modules/enhancedcombathud/icons/walking-boot.svg",
+        "icon": "modules/enhancedcombathudsw5e/icons/walking-boot.svg",
         "label": "Dash",
         "transfer": false,
         "flags": {
@@ -366,7 +366,7 @@ Hooks.once("ready",()=>{
     ],
     "sort": 0,
     "flags": {
-      "enhancedcombathud": {
+      "enhancedcombathudsw5e": {
         "set1p": false,
         "set2p": false,
         "set3p": false
@@ -376,13 +376,13 @@ Hooks.once("ready",()=>{
       }
     }
   }
-  ECHItems[game.i18n.localize("enhancedcombathud.items.dodge.name")] = {
-    "name": game.i18n.localize("enhancedcombathud.items.dodge.name"),
+  ECHItems[game.i18n.localize("enhancedcombathudsw5e.items.dodge.name")] = {
+    "name": game.i18n.localize("enhancedcombathudsw5e.items.dodge.name"),
     "type": "feat",
-    "img": "modules/enhancedcombathud/icons/armor-upgrade.svg",
+    "img": "modules/enhancedcombathudsw5e/icons/armor-upgrade.svg",
     "data": {
       "description": {
-        "value": game.i18n.localize("enhancedcombathud.items.dodge.desc"),
+        "value": game.i18n.localize("enhancedcombathudsw5e.items.dodge.desc"),
         "chat": "",
         "unidentified": ""
       },
@@ -434,7 +434,7 @@ Hooks.once("ready",()=>{
       "save": {
         "ability": "",
         "dc": null,
-        "scaling": "spell"
+        "scaling": "power"
       },
       "consumableType": "trinket"
     },
@@ -447,7 +447,7 @@ Hooks.once("ready",()=>{
           "startTime": null,
           "turns": 1
         },
-        "icon": "modules/enhancedcombathud/icons/armor-upgrade.svg",
+        "icon": "modules/enhancedcombathudsw5e/icons/armor-upgrade.svg",
         "label": "Dodge",
         "origin": "Item.pakEYcgLYxtKGv7J",
         "transfer": false,
@@ -464,7 +464,7 @@ Hooks.once("ready",()=>{
     ],
     "sort": 0,
     "flags": {
-      "enhancedcombathud": {
+      "enhancedcombathudsw5e": {
         "set1p": false,
         "set2p": false,
         "set3p": false
@@ -474,13 +474,13 @@ Hooks.once("ready",()=>{
       }
     }
   }
-  ECHItems[game.i18n.localize("enhancedcombathud.items.ready.name")] = {
-    "name": game.i18n.localize("enhancedcombathud.items.ready.name"),
+  ECHItems[game.i18n.localize("enhancedcombathudsw5e.items.ready.name")] = {
+    "name": game.i18n.localize("enhancedcombathudsw5e.items.ready.name"),
     "type": "feat",
-    "img": "modules/enhancedcombathud/icons/clockwork.svg",
+    "img": "modules/enhancedcombathudsw5e/icons/clockwork.svg",
     "data": {
       "description": {
-        "value": game.i18n.localize("enhancedcombathud.items.ready.desc"),
+        "value": game.i18n.localize("enhancedcombathudsw5e.items.ready.desc"),
         "chat": "",
         "unidentified": ""
       },
@@ -532,7 +532,7 @@ Hooks.once("ready",()=>{
       "save": {
         "ability": "",
         "dc": null,
-        "scaling": "spell"
+        "scaling": "power"
       },
       "consumableType": "trinket"
     },
@@ -545,7 +545,7 @@ Hooks.once("ready",()=>{
           "startTime": null,
           "turns": 1
         },
-        "icon": "modules/enhancedcombathud/icons/clockwork.svg",
+        "icon": "modules/enhancedcombathudsw5e/icons/clockwork.svg",
         "label": "Ready",
         "transfer": false,
         "flags": {
@@ -561,7 +561,7 @@ Hooks.once("ready",()=>{
     ],
     "sort": 0,
     "flags": {
-      "enhancedcombathud": {
+      "enhancedcombathudsw5e": {
         "set1p": false,
         "set2p": false,
         "set3p": false

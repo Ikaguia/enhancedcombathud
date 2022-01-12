@@ -1,7 +1,7 @@
 {
   "name": "Hide",
   "type": "consumable",
-  "img": "modules/enhancedcombathud/icons/cloak-dagger.svg",
+  "img": "modules/enhancedcombathudsw5e/icons/cloak-dagger.svg",
   "data": {
     "description": {
       "value": "<p>When you take the Hide action, you make a Dexterity (Stealth) check in an attempt to hide, following the rules for hiding. If you succeed, you gain certain benefits.</p>\n<p data-content-chunk-id=\"d49da437-9800-4cdb-be60-5c1cc12e45f2\">Combatants often try to escape their foes' notice by hiding, casting the&nbsp;invisibility&nbsp;spell, or lurking in darkness.</p>\n<p data-content-chunk-id=\"c7a62036-4c31-4a7f-bd29-db5f4a873f8c\">When you attack a target that you can't see, you have disadvantage on the attack roll. This is true whether you're guessing the target's location or you're targeting a creature you can hear but not see. If the target isn't in the location you targeted, you automatically miss, but the DM typically just says that the attack missed, not whether you guessed the target's location correctly.</p>\n<p data-content-chunk-id=\"760a7b7d-7681-4f2c-a356-05594eca1bbd\">When a creature can't see you, you have advantage on attack rolls against it. If you are hidden--both unseen and unheard--when you make an attack, you give away your location when the attack hits or misses.</p>\n<p>&nbsp;</p>",
@@ -63,7 +63,7 @@
       "dc": null,
       "scaling": "spell"
     },
-    "consumableType": "trinket"
+    "consumableType": "consumable"
   },
   "effects": [
     {
@@ -74,7 +74,7 @@
         "startTime": null,
         "turns": 10
       },
-      "icon": "modules/enhancedcombathud/icons/cloak-dagger.svg",
+      "icon": "modules/enhancedcombathudsw5e/icons/cloak-dagger.svg",
       "label": "Hide",
       "transfer": false,
       "flags": {
@@ -90,7 +90,7 @@
   ],
   "sort": 0,
   "flags": {
-    "enhancedcombathud": {
+    "enhancedcombathudsw5e": {
       "set1p": false,
       "set2p": false,
       "set3p": false,
@@ -103,7 +103,7 @@
     },
     "exportSource": {
       "world": "test2",
-      "system": "dnd5e",
+      "system": "sw5e",
       "coreVersion": "0.8.8",
       "systemVersion": "1.3.6"
     }

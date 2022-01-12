@@ -1,7 +1,7 @@
 {
   "name": "Dash",
   "type": "consumable",
-  "img": "modules/enhancedcombathud/icons/walking-boot.svg",
+  "img": "modules/enhancedcombathudsw5e/icons/walking-boot.svg",
   "data": {
     "description": {
       "value": "<p data-content-chunk-id=\"32f25854-3ca6-4afe-8790-0a87b06879b1\">When you take the Dash action, you gain extra movement for the current turn. The increase equals your speed, after applying any modifiers. With a speed of 30 feet, for example, you can move up to 60 feet on your turn if you dash.</p>\n<p data-content-chunk-id=\"8587443b-c938-455a-9861-09e5af6a9629\">Any increase or decrease to your speed changes this additional movement by the same amount. If your speed of 30 feet is reduced to 15 feet, for instance, you can move up to 30 feet this turn if you dash.</p>",
@@ -57,7 +57,7 @@
       "dc": null,
       "scaling": "spell"
     },
-    "consumableType": "trinket"
+    "consumableType": "consumable"
   },
   "effects": [
     {
@@ -68,7 +68,7 @@
         "startTime": null,
         "rounds": 1
       },
-      "icon": "modules/enhancedcombathud/icons/walking-boot.svg",
+      "icon": "modules/enhancedcombathudsw5e/icons/walking-boot.svg",
       "label": "Dash",
       "transfer": false,
       "flags": {
@@ -84,7 +84,7 @@
   ],
   "sort": 0,
   "flags": {
-    "enhancedcombathud": {
+    "enhancedcombathudsw5e": {
       "set1p": false,
       "set2p": false,
       "set3p": false
@@ -94,7 +94,7 @@
     },
     "exportSource": {
       "world": "test2",
-      "system": "dnd5e",
+      "system": "sw5e",
       "coreVersion": "0.8.8",
       "systemVersion": "1.3.6"
     }
