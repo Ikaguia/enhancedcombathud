@@ -46,6 +46,18 @@ class CombatHud {
         },
       },
     };
+
+    const features = [
+      "classfeature",
+      "deploymentfeature",
+      "feat",
+      "fightingmastery",
+      "fightingstyle",
+      "lightsaberform",
+      "starshipfeature",
+      "venture",
+    ];
+
     this.actions = {
       attack: this.getItems({
         actionType: ["action"],
@@ -57,7 +69,7 @@ class CombatHud {
         itemType: ["power"],
         prepared: true,
       }),
-      special: this.getItems({ actionType: ["action"], itemType: ["feat"] }),
+      special: this.getItems({ actionType: ["action"], itemType: features }),
       consumables: this.getItems({
         actionType: ["action"],
         itemType: ["consumable"],
@@ -74,7 +86,7 @@ class CombatHud {
         itemType: ["power"],
         prepared: true,
       }),
-      special: this.getItems({ actionType: ["bonus"], itemType: ["feat"] }),
+      special: this.getItems({ actionType: ["bonus"], itemType: features }),
       consumables: this.getItems({
         actionType: ["bonus"],
         itemType: ["consumable"],
@@ -93,7 +105,7 @@ class CombatHud {
       }),
       special: this.getItems({
         actionType: ["reaction"],
-        itemType: ["feat"],
+        itemType: features,
       }),
       consumables: this.getItems({
         actionType: ["reaction"],
@@ -101,7 +113,10 @@ class CombatHud {
       }),
     };
     this.free = {
-      special: this.getItems({ actionType: ["special"], itemType: ["feat"] }),
+      special: this.getItems({
+        actionType: ["special"],
+        itemType: features,
+      }),
     };
     this.other = {
       portrait: this.actor.data.img,
@@ -131,10 +146,6 @@ class CombatHud {
       action: true,
       bonus: true,
       other: true,
-    };
-    this.resources = {
-      action: true,
-      bonus: true,
       reaction: true,
     };
     this.skills = this.actor.data.data.skills;
@@ -173,7 +184,7 @@ class CombatHud {
       );
     });
 
-    //
+    // Localize abilities
     Object.keys(game.sw5e.config.abilities).forEach((ability) => {
       this.saves[ability].label = game.sw5e.config.abilities[ability];
       this.saves[ability].total = this.saves[ability].save;
@@ -233,6 +244,7 @@ class CombatHud {
         return true;
       return false;
     });
+
     let powers = {};
     powers[this.settings.localize.powers["0"]] = [];
     powers[this.settings.localize.powers["innate"]] = [];
@@ -247,6 +259,7 @@ class CombatHud {
     powers[this.settings.localize.powers["7"]] = [];
     powers[this.settings.localize.powers["8"]] = [];
     powers[this.settings.localize.powers["9"]] = [];
+
     if (prepared) {
       for (let item of filteredItems) {
         let key = item.labels.level;
@@ -273,11 +286,8 @@ class CombatHud {
       }
     }
 
-    if (filters.prepared === true) {
-      return powers;
-    } else {
-      return filteredItems;
-    }
+    if (filters.prepared === true) return powers;
+    else return filteredItems;
   }
   findItemByName(itemName) {
     let items = this.actor.data.items;
@@ -785,10 +795,8 @@ class CombatHudCanvasElement extends BasePlaceableHUD {
       let actiontype = container.dataset.actionbartype;
       if (actiontype == "actions") continue;
       let remove = true;
-      if (actiontype == "bonus" && this.hudData.sets.active.secondary)
-        remove = false;
-      if (actiontype == "reactions" && this.hudData.sets.active.primary)
-        remove = false;
+      if (actiontype == "bonus" && this.hudData.sets.active.secondary) remove = false;
+      if (actiontype == "reactions" && this.hudData.sets.active.primary) remove = false;
 
       for (let [key, value] of Object.entries(this.hudData[actiontype])) {
         if (
